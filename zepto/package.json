@@ -1,0 +1,27 @@
+{
+  "name": "DS_C",
+  "version": "3.0.0",
+  "description": "Web_C",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "qing.yan@click-v.com",
+  "license": "ISC",
+  "dependencies": {
+    "gulp-concat": "^2.6.0",
+    "gulp-less": "^3.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-rev": "^7.1.2",
+    "gulp-rev-append": "^0.1.6",
+    "gulp-rev-collector": "^1.0.5"
+  },
+  "devDependencies": {
+    "gulp-htmlmin": "^2.0.0"
+  }
+}

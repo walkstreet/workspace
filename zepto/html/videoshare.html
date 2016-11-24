@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link href="" mce_href="favicon.ico" rel="icon" type="image/x-icon">
+    <title>【点视】视频分享</title>
+    <meta name="keywords" content="视频分享-点视">
+    <meta name="description" content="视频分享-点视">
+    <link rel="stylesheet" href="../lib/sui/css/sm.min.css?rev=@@hash">
+    <link rel="stylesheet" href="../lib/swiper/css/swiper.min.css?rev=@@hash">
+    <link rel="stylesheet" href="../css/videoshare.min.css?rev=@@hash">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?0c458ce14181fcea127fc3e8aa93339c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+
+<body>
+    <div>
+        <img id="defalut-img" src="http://www.click-v.com/logo/new200x200.png">
+    </div>
+    <div class="page-group">
+        <!-- 单个page ,第一个.page默认被展示-->
+        <div class="page page-current" id="videoshare" style="display: none;">
+            <!-- head_start -->
+            <!--<header class="bar bar-nav">-->
+                <!--<video id="top_video" class="video-js vjs-default-skin" controls preload="none" width="375" height="264" poster="" data-setup="{}" playsinline webkit-playsinline>-->
+                    <!--&lt;!&ndash; <source src="" type="video/mp4"> &ndash;&gt;-->
+                    <!--<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>-->
+                <!--</video>-->
+                <!--<div class="fix-play" style="display:none;width:100%;height:208px;position:absolute;top:0;z-index:2147483647;"></div>-->
+            <!--</header>-->
+            <header>
+                <video id="top_video" class="video-js vjs-default-skin" controls preload="none" width="375" height="264" poster="" data-setup="{}" playsinline webkit-playsinline>
+                    <!-- <source src="" type="video/mp4"> -->
+                    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+                </video>
+            </header>
+            <!-- head_end -->
+            <!-- content_start -->
+            <div class="content">
+                <div class="main">
+
+                    <!-- brand_start -->
+                    <div class="brand clearfix" style="display:none">
+                        <span class="brand-logo pull-left"></span>
+                        <span class="brand-info pull-left">
+                            <em class="brand-name"></em>
+                            <em class="brand-profile"></em>
+                        </span>
+                        <!-- <span class="icon icon-right pull-right"><i class="icon-round"></i></span> -->
+                    </div>
+                    <!-- brand_end -->
+                    <div class="video-info" style="display:none">
+                        <div class="video-title"></div>
+                        <div class="video-prop">
+                            <span class="video-catgory"></span> / 
+                            <span class="video-time">0'00"</span>
+                             <!-- / <span class="video-type">VR</span> -->
+                        </div>
+                        <div class="video-desc">
+                            
+                        </div>
+                    </div>
+                    <div class="hot-video" style="display:none">
+                        <div class="v-title">热门推荐视频</div>
+                        <div class="line"></div>
+                        <div class="hot-video-area">
+                            <!-- <div class="hot-video-list clearfix">
+                                <img class="video-img" src="../img/cinema.jpg" />
+                                <div class="video-detail pull-right">
+                                    <div class="video-title">格莱美明星 惊人和惊艳</div>
+                                    <div><span class="font-videoshare icon-videoplay"></span> <span class="video-views">2,931</span></div>
+                                    <div class="video-infos"><span class="video-type">星话题</span> / <span class="video-length">1'30"</span></div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="recommend-video" style="display:none">
+                        <div class="v-title">猜你喜欢</div>
+                        <div class="line"></div>
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper video-area clearfix">
+                                <!-- <div class="recommend-video-list">
+                                    <img class="video-img" src="../img/cinema.jpg" />
+                                    <div class="video-detail">
+                                        <div class="video-title">格莱美明星 惊人和惊艳</div>
+                                        <div><span class="font-videoshare icon-videoplay"></span> <span class="video-views">2,931</span></div>
+                                        <div class="video-infos"><span class="video-type">星话题</span> / <span class="video-length">1'30"</span></div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="qrcode">
+                        <img src="../img/qr.png" />
+                    </div>
+                </div>
+            </div>
+            <!-- content_end -->
+            <footer class="bar bar-tab footer clearfix">
+                <span class="dianshi pull-left"></span>
+                <span class="download pull-right">
+                    <img src="../img/download.png" />
+                </span>
+            </footer>
+        </div>
+    </div>
+    <!-- requireJS -->
+    <script data-main="../js/videoshare.min" src="../lib/require.min.js"></script>
+</body>
+<script id="tpl-hot-video" type="text/html">
+{{each hotVideos as h i}}
+    <div class="hot-video-list clearfix">
+        <img class="video-img pull-left" src="{{h.coverUrl}}" />
+        <div class="video-detail pull-right">
+            <div class="video-title">{{h.name}}</div>
+            <div><span class="font-videoshare icon-videoplay"></span> <span class="video-views">{{h.playTimes | dote}}</span></div>
+            <div class="video-infos"><span class="video-type">{{h.classifyName}}</span> / <span class="video-length">{{h.videoLength}}</span></div>
+        </div>
+    </div>
+{{/each}}
+</script>
+<script id="tpl-recommend-video" type="text/html">
+{{each likeVideos as h i}}
+    <div class="swiper-slide recommend-video-list">
+        <img class="video-img" src="{{h.coverUrl}}" />
+        <div class="video-detail">
+            <div class="video-title">{{h.name}}</div>
+            <div><span class="font-videoshare icon-videoplay"></span> <span class="video-views">{{h.playTimes | dote}}</span></div>
+            <div class="video-infos"><span class="video-type">{{h.classifyName}}</span> / <span class="video-length">{{h.videoLength}}</span></div>
+        </div>
+    </div>
+{{/each}}
+</script>
+</html>

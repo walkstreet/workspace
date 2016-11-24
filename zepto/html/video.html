@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Document</title>
+    <meta name="Description" content="">
+    <!-- <link rel="stylesheet" href="../lib/video/video-js.css"> -->
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    /*     
+    video::-webkit-media-controls-enclosure {
+        display: none !important;
+    } */
+    
+    video::media-controls-fullscreen-button {
+        display: none !important;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- <script language="javascript" type="text/javascript" src="../lib/video/video.js"></script>
+    <script language="javascript" type="text/javascript" src="../lib/video/videojs-ie8.min.js"></script> -->
+    <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="375" height="264" poster="http://vjs.zencdn.net/v/oceans.png" data-setup="{}" webkit-playsinline>
+        <source src="http://200004500.vod.myqcloud.com/200004500_44e60aba1da111e689690f47f5e05cec.f30.mp4" type="video/mp4" webkit-playsinline>
+        <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+    </video>
+</body>
+<script src="../lib/zepto.min.js"></script>
+<script src="../lib/sui/js/sm.min.js"></script>
+<script language="javascript" type="text/javascript">
+$(function() {
+    console.log($.device);
+    // var video = document.getElementById('example_video_1');
+    // $('#example_video_1').unbind().bind('click', function() { //控制视频全屏与退出全屏
+    //     console.log("111");
+    //     video.play();
+    //     //For Webkit
+    //     $('#example_video_1')[0].webkitEnterFullscreen();
+
+    //     //For Firefox
+    //     $('#example_video_1')[0].mozRequestFullScreen();
+    //     $('#example_video_1')[0].controls = false;
+
+    //     return false;
+    // });
+})
+</script>
+
+</html>

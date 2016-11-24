@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link href="" mce_href="favicon.ico" rel="icon" type="image/x-icon">
+    <title></title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../lib/sui/css/sm.min.css?rev=@@hash">
+    <link rel="stylesheet" href="../css/topic.min.css?rev=@@hash">
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?a139ce052767863220b880d5e161278f";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body>
+    <div class="page-group">
+        <!-- 单个page ,第一个.page默认被展示-->
+        <div class="page page-current" id="topic">
+            <!-- content_start -->
+            <div class="content">
+                <div class="main">
+                    <!-- banner_start -->
+                    <div class="banner" id="banner_column"></div>
+                    <div class="banner-brand" id="banner_brand"></div>
+                    <!-- banner_end -->
+                    <!-- list_start -->
+                    <div class="list" id="list"></div>
+                    <!-- list_end -->
+                    <!-- <div class="load">加载中...</div> -->
+                </div>
+            </div>
+            <!-- content_end -->
+            <!-- content_end -->
+            <footer class="bar bar-tab footer clearfix">
+                <span class="dianshi pull-left"></span>
+                <span class="download pull-right">
+                    <img src="../img/download.png" class="app" />
+                </span>
+            </footer>
+        </div>
+    </div>
+    <!-- requireJS -->
+    <script data-main="../js/topic.min" src="../lib/require.min.js"></script>
+</body>
+<script id="tpl_brand" type="text/html">
+    <!-- desc_end -->
+    <!-- 如果是自媒体，有logo显示 -->
+    <div class="banner-author banner-logo">
+        <img src="{{brandIconUrl}}" alt="{{brandName}}">
+    </div>
+    <div class="banner-author banner-text">{{brandName}}</div>
+    <!-- desc_start -->
+    <p class="desc">{{brandDescription}}</p>
+</script>
+<script id="tpl_column" type="text/html">
+    <img src="{{columnCoverUrl}}" alt="{{columnName}}" class="banner-cover">
+    <p class="desc">{{columnDescription}}</p>
+</script>
+<script id="tpl_list" type="text/html">
+    {{each list as list index}}
+    <!-- 单行 -->
+    <div class="list-col">
+        <div class="list-cover">
+            <div class="cover">
+                <img src="{{list.videoCoverUrl}}" alt="{{list.videoTitle}}" class="cover-img">
+            </div>
+            <img src="../img/icon-play.png" alt="play" class="play" data-videoId="{{list.videoId}}">
+            <video class="video">
+                <source src="{{list.videoUrl}}" type="video/mp4">
+            </video>
+        </div>
+        <div class="list-info">
+            <p class="list-info-title">{{list.videoTitle}}</p>
+            <p class="list-info-fulltime">
+                <span>{{list.classifyName}} / {{list.videoDuration}}</span>
+            </p>
+        </div>
+        <!-- icon -->
+        <div class="row no-gutter time-info">
+            <div class="col-25 time">
+                <i class="iconfont time-icon">&#xe60c;</i>
+                <span>{{list.playTimes | dote}}</span>
+            </div>
+            <div class="col-25">
+                <i class="iconfont time-icon">&#xe60d;</i>
+                <span>{{list.commentCount | dote}}</span>
+            </div>
+            <div class="col-25">
+                <i class="iconfont time-icon">&#xe60a;</i>
+                <span>{{list.approveTimes | dote}}</span>
+            </div>
+            {{if list.coinNum != 0*1}}
+            <div class="col-25">
+                <i class="iconfont time-icon">&#xe608;</i>
+                <span>{{list.coinNum}}</span>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+</html>

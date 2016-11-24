@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<title>Scheme</title>
+</head>
+<body>
+	<a href='dianshi://weblauncher?params=' data-href='{"id": 51,"showMonitor": "","clickMonitor": "","title": "0805li内链-兑换","image": "http://pic.click-v.com/DliNmLeGyGgNz5l5_UlyeD9Lcoo=/FmnxDA0rNVXUjTDRBY7CX2qu4ezx","objType": 6,"objValue": "http://www.click-v.com/"}'>点击我打开app</a>
+</body>
+	<script src="../lib/zepto.min.js"></script>
+	<script src="../lib/base64.js"></script>
+	<script>
+		$(function(){
+			$('a').on('click',function(event){
+				var src = $(this).attr('data-href');
+				src = encodeURI(src);
+				src = $(this).attr('href') + BASE64.encoder(src);
+				console.log(src);
+				$(this).attr('href',src);
+			})
+		})
+	</script>
+</html>

@@ -1,0 +1,178 @@
+//载入重写样式
+@import "../gless/reset.less";
+//载入全局样式
+@import "../gless/global.less";
+//载入字体文件
+@import "../gless/font-topic.less";
+//底部导航条
+@import "../gless/download-app.less";
+.main {
+    padding-bottom: 3rem;
+    min-height: 100%;
+    background: -webkit-linear-gradient(right top, #418ad5, #7e08a6);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(bottom left, #418ad5, #7e08a6);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(bottom left, #418ad5, #7e08a6);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(to bottom left, #418ad5, #7e08a6);
+    /* 标准的语法 */
+}
+
+//专题的banner
+.banner {
+    .banner-cover {
+        display: block;
+        width: 100%;
+    }
+    //文字描述
+    p.desc {
+        background-color: #121e33;
+        .font-13;
+        .textalign-lr;
+        color: #fff;
+        line-height: 1.05rem;
+        padding: 0.8rem 1rem;
+    }
+}
+
+//自媒体的banner
+.banner-brand {
+    padding: 2rem 2rem 2rem 1rem;
+    .banner-cover {
+        display: block;
+        width: 100%;
+    }
+    .banner-logo {
+        overflow: hidden;
+        img {
+            border-radius: 50%;
+            width: 4rem;
+            height: 4rem;
+            display: block;
+        }
+    }
+    .banner-text {
+        color: #fff;
+        font-size: 1.2rem;
+        margin-top: 0.8rem;
+        line-height: 1.2rem;
+    }
+    //文字描述
+    p.desc {
+        .font-13;
+        .textalign-lr;
+        color: #fff;
+        line-height: 1.05rem;
+        margin-top: 0.2rem;
+    }
+}
+
+//列表
+.list {
+    //background-color: #fff;
+    padding: 0.2rem;
+    .font-topic {
+        font-size: 0.6rem;
+    }
+    //一行
+    .list-col {
+        background-color: #fff;
+        margin-bottom: 0.05rem;
+        .list-cover {
+            width: 100%;
+            position: relative;
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                //background-color: #000;
+            }
+            .play {
+                position: absolute;
+                width: 2.4rem;
+                height: 2.4rem;
+                display: block;
+                z-index: 10;
+                left: 50%;
+                top: 50%;
+                margin-left: -1.2rem;
+                margin-top: -1.2rem;
+                &.z-1000 {
+                    z-index: 1000;
+                }
+            }
+        }
+        .list-info {
+            padding: 0.8rem 0.8rem 0.2rem 0.8rem;
+            p {
+                //white-space: nowrap;
+                text-overflow: ellipsis;
+                color: #666666;
+                .font-12;
+                &.list-info-title {
+                    color: #333333;
+                    .font-18;
+                }
+                &.list-info-fulltime {
+                    color: #333;
+                    margin-top: 0.25rem;
+                    span {
+                        .font-12;
+                        display: inline-block;
+                        white-space: nowrap;
+                        width: 1.6rem;
+                        border-bottom: 0.05rem solid #333;
+                        padding-bottom: 0.3rem;
+                    }
+                }
+                &.list-info-desc {}
+                &.thumb {
+                    text-align: right;
+                    span {
+                        vertical-align: middle;
+                        margin-left: 0.2rem;
+                    }
+                }
+            }
+        }
+        //视频界面
+        .video {
+            width: 1px;
+            height: 1px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #000;
+            z-index: 100;
+        }
+        .time-info {
+            height: 1.6rem;
+            line-height: 1.6rem;
+            font-size: 0.6rem;
+            white-space: nowrap;
+            i,
+            span {
+                color: #333;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+.time-icon {
+    margin-left: 0.6rem;
+    margin-right: 0.1rem;
+}
+
+.load {
+    text-align: center;
+    .font-14;
+    line-height: 3rem;
+    background-color: #fff;
+}
+
+// video::-webkit-media-controls-start-playback-button {
+//     display: none !important;
+// }
