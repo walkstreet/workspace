@@ -1,0 +1,24 @@
+{
+  "name": "ds-new-admin-web",
+  "version": "1.0.0",
+  "description": "new-a",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.internal.ly.com/dsrepo/ds-new-admin-web.git"
+  },
+  "author": "King",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-spawn": "^5.0.1",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-rev": "^7.1.2",
+    "gulp-rev-collector": "^1.0.5",
+    "run-sequence": "^1.2.2"
+  }
+}

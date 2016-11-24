@@ -1,0 +1,176 @@
+<style>
+.ibox-title {
+    border-top: 0;
+    border-bottom: 1px solid #e7eaec;
+}
+
+.lots-action {
+    margin: 15px;
+}
+
+.select-tag .open {
+    border: 1px solid #1ab394;
+}
+
+.select-text input {
+    height: 33px;
+}
+
+.ui-select-multiple.ui-select-bootstrap {
+    padding: 3px 0 3px 12px;
+}
+
+.table-data {
+    padding: 0 15px;
+}
+.table-overflow table{
+    width: 1600px;
+}
+.table{
+    margin-bottom: 0;
+}
+.table-loading{
+    text-align: center;
+    padding: 10px 8px;
+    font-size: 16px;
+}
+.table .center{
+    vertical-align: middle;
+}
+.table input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    margin-top: 0;
+}
+.checkall *{
+    vertical-align: middle;
+}
+.ui-select-container .ui-select-bootstrap .ui-select-toggle{
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+}
+</style>
+<toaster-container></toaster-container>
+<div ng-controller="comment" class="animated fadeInRight">
+    <div class="row wrapper border-bottom white-bg page-heading ng-scope">
+        <bread-crumb my-title="{{breadCrumb}}" my-bread="bread"></bread-crumb>
+    </div>
+    <div class="main">
+        <form class="row section p-t">
+            <div class="">
+                <div class="form-group col-sm-3">
+                    <label class="col-lg-12 control-label">发表内容</label>
+                    <input type="text" placeholder="输入发表内容" class="form-control" ng-model="content">
+                </div>
+                <div class="form-group col-sm-3 clearfix">
+                    <label class="col-lg-12 control-label">用户</label>
+                    <div class="select-2 select-text">
+                        <ui-select user-select ng-model="person.selected" theme="bootstrap">
+                            <ui-select-match placeholder="输入用户ID或名称">{{$select.selected.userName}}</ui-select-match>
+                            <ui-select-choices repeat="item in people | filter: $select.search">
+                                <div ng-bind-html="item.userName | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <div class="form-group col-sm-3">
+                    <label class="col-lg-12 control-label">起始日期 (发表日期)</label>
+                    <div class="input-group date col-lg-12">
+                        <input type="text" date-time date-start class="form-control" placeholder="请选择发表起始日期" ng-model="startDate" view="date" auto-close="true" min-view="date" format="YYYY-MM-DD" id="startDate">
+                    </div>
+                </div>
+                <div class="form-group col-sm-3">
+                    <label class="col-lg-12 control-label">终止日期 (发表时间)</label>
+                    <div class="input-group date col-lg-12">
+                        <input type="text" date-time date-start class="form-control" placeholder="请选择发表起始日期" ng-model="endDate" view="date" auto-close="true" min-view="date" format="YYYY-MM-DD" id="endDate">
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="form-group col-sm-3">
+                    <label class="col-lg-12 control-label">发表类型</label>
+                    <select class="form-control" ng-model="commentType">
+                        <option value="">全部</option>
+                        <option value="1">评论</option>
+                        <option value="2">回复</option>
+                    </select>
+                </div>
+                <div class="form-group col-sm-6">
+                    <div class="col-lg-12">
+                        <label class="control-label m-r">视频</label>
+                        <label class="m-r">
+                            <input icheck type="radio" name="radioTest" ng-model="display" value="0"> 显示 </label>
+                        <label>
+                            <input icheck type="radio" name="radioTest" ng-model="display" value="1"> 隐藏 </label>
+                    </div>
+                    <div class="select-2 select-tag">
+                        <ui-select multiple video-select ng-model="answer.video" theme="bootstrap" ng-disabled="disabled" width="100%">
+                            <ui-select-match placeholder="输入视频ID或名称">{{$item.videoName}}</ui-select-match>
+                            <ui-select-choices repeat="video in availableVideo | filter:$select.search">
+                                {{video.videoName}}
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <div class="row form-group col-sm-3">
+                    <label class="col-lg-12 control-label">&nbsp;</label>
+                    <div class="col-lg-12">
+                        <button type="button" class="btn btn-primary btn-md m-r" ladda="loading" data-style="zoom-in" ng-click="searchTable()">查询</button>
+                        <button type="reset" class="btn btn-default btn-md" ng-click="reset()">重置</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row section">
+            <div class="ibox-title">
+                <h4>待审核评论</h4>
+            </div>
+            <div class="lots-action">
+                <button type="button" class="btn btn-success btn-md m-r" ladda="lotsLoading" data-style="zoom-in" ng-click="lotsControl('ACCESS')">批量通过</button>
+                <button type="button" class="btn btn-danger btn-md m-r" ladda="lotsLoading" data-style="zoom-in" ng-click="lotsControl('NO_ACCESS')">批量拒绝</button>
+            </div>
+            <div class="table table-data">
+                <div class="table-overflow">
+                    <table datatable="" dt-options="dtOptions" class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                            <tr>
+                                <th class="checkall center" width="100">
+                                    <label><input icheck type="checkbox" ng-model="allCheck" ng-click="checkAll()"> <span>全选</span></label>
+                                </th>
+                                <th class="center" width="200">视频名称</th>
+                                <th class="center" width="200">用户ID</th>
+                                <th class="center" width="200">用户名称</th>
+                                <th class="center" width="200">发表内容</th>
+                                <th class="center" width="200">发表时间</th>
+                                <th class="center" width="200">发表类型</th>
+                                <th class="center" width="200">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="video in template">
+                                <td class="center">
+                                    <label>
+                                        <input icheck type="checkbox" ng-model="video.checkbox">
+                                    </label>
+                                </td>
+                                <td class="center">{{video.videoName}}</td>
+                                <td class="center">{{video.userId}}</td>
+                                <td class="center">{{video.userNickname}}</td>
+                                <td class="center">{{video.contents}}</td>
+                                <td class="center">{{video.createTime | date:"yyyy-MM-dd HH:mm:ss"}}</td>
+                                <td class="center">{{video.commentType | contentSort}}</td>
+                                <td class="center">
+                                    <button type="button" class="btn btn-success btn-md m-r" ladda="lotsLoading" data-style="zoom-in" ng-click="lotsControl('ACCESS',[video.commentsId])">通过</button>
+                                    <button type="button" class="btn btn-danger btn-md m-r" ladda="lotsLoading" data-style="zoom-in" ng-click="lotsControl('NO_ACCESS',[video.commentsId])">拒绝</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="table-loading" ng-hide="tableLoading">加载中...</div>
+                </div>
+                <pagination page-info="page"></pagination>
+            </div>
+        </div>
+    </div>
+</div>

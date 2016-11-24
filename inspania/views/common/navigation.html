@@ -1,0 +1,28 @@
+<nav class="navbar-default navbar-static-side" role="navigation" ng-controller="menu">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="profile-element">
+                    <img alt="image" class="img-circle" ng-src="{{user.headPicture}}" width="60" height="60">
+                    <a uib-dropdown-toggle href>
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">{{user.name}}</strong>
+                         </span>
+                            <span class="text-muted text-xs block">{{user.nickName}}</span>
+                        </span>
+                    </a>
+                </div>
+                <!-- <div class="profile-element dropdown text-center">
+                    <img src="img/dslogo.png" style="max-width:90px;" alt="profile">
+                </div> -->
+            </li>
+            <li ng-class="{active: $state.includes('{{menuone.url}}')}" ng-repeat="menuone in menuList">
+                <a href="javascript:;"><i class="fa menu-{{menuone.url}}"></i> <span class="nav-label">{{menuone.name}}</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('{{menuone.url}}')}">
+                    <li ui-sref-active="active"><a ui-sref="{{smenu.url}}" ng-repeat="smenu in menuone.childrenMenus">{{smenu.name}}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
