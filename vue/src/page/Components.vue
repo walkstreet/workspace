@@ -1,21 +1,32 @@
+<style lang="scss" scoped>
+  .page-one-main{
+    input{
+      display: block;
+    }
+    img{
+      display: block;
+    }
+  }
+</style>
 <template>
   <div id="scroll" class="page-one">
     <div class="page-one-main">
       <input v-model="text">
-      <img src="../assets/img/logo.png">
+      <img src="../assets/img/logo.png" @click="onClick">
     </div>
   </div>
 </template>
 <script>
+import config from '../config';
 module.exports = {
   data(){
     return{
-      text:''
+      text:'placeholder1'
     }
   },
   created: function(){
-    this.config = require("../config");
-    console.log(this.config);
+    this.config = config;
+    console.log(config,this.$route.params.id);
     // POST /someUrl
     // this.$http.post(this.config.api, {}).then((response) => {
 
