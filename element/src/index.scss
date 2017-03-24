@@ -1,0 +1,78 @@
+//载入基础样式
+@import "./base.scss";
+
+//flex
+.flex {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+.flex-center {
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+//字体排列
+.text-right{
+    text-align: right;
+}
+.text-left{
+    text-align: left;
+}
+.text-center{
+    text-align: center;
+}
+
+//面包屑
+.breadcrumb{
+    padding: 20px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    background-color: #ffffff;
+}
+
+//页面里的主要布局，涉及搜索区及表格区
+.main{
+    padding: 0 30px 20px 30px;
+    //通用section
+    .section{
+        margin-top: 20px;
+        background-color: #fff;
+        .section-head{
+            font-size: 14px;
+            font-weight: bold;
+            border-bottom: 1px solid #e7e7e7;
+            line-height: 50px;
+            padding: 0 15px;
+        }
+        .section-action{
+            padding: 15px 15px;
+        }
+        .section-body{
+            padding: 0 15px 20px 15px;
+            .pagination{
+                text-align: right;
+                margin-top:30px;
+            }
+        }
+    }
+    //组合筛选区域
+    .search{
+        .search-col{
+            padding: 0 15px 20px 15px;
+            label{
+                display: block;
+                color: #666;
+                margin: 20px 0 10px 0;
+                font-size: 14px;
+                font-weight: bold;
+            }
+            .el-date-editor.el-input{
+                width: 100%;
+            }
+        }
+    }
+}
