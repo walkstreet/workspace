@@ -1,0 +1,5 @@
+{
+    "name": "catalog", 
+    "scripts": ["catalog.js"],
+    "styles": ["style.scss"]
+}

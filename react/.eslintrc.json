@@ -1,0 +1,16 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6, // JavaScript 版本，3, 5 (default), 6 (2015), 7 (2016)
+        "sourceType": "module", // "script" (default) 或者 "module"，说明你的代码是否是 ECMAScript 模块。
+        "ecmaFeatures": { // 其他的一些语法特性的配置
+            "jsx": true
+        }
+    },
+    "parser": "babel-eslint",
+    "rules": {
+        // "off" or 0 - 关闭这个规则校验
+        // "warn" or 1 - 开启这个规则校验，但只是提醒，不会退出
+        // "error" or 2 - 开启这个规则校验，并退出
+        "semi": 2 
+    }
+}
