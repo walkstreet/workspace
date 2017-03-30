@@ -1,9 +1,0 @@
-@font-face {
-  src: url(./fonts/fontawesome-webfont.woff); }
-
-body {
-  background-image: url(./images/img1.jpg);
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease; }
-  body h1 {
-    color: #fff; }
