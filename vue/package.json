@@ -2,7 +2,7 @@
   "name": "Vue.js",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "yanqing <qing.yan@click-v.com>",
+  "author": "yanqing <qingskybabe@qq.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

@@ -6,30 +6,30 @@ var dsLogoImg = 'images/dslogo.jpg';
 var defaultShareImg = 'YbobvshwlJmemWzc8HaaRw8HIT8=/FkAQHbECZgHNJSCzY08qC4cZfXNQ';
 
 // 资源域名配置
-var picHost = 'pic.click-v.com';
+var picHost = '';
 var resourcesBaseUrl = protocol + '://' + picHost + '/';
 
 // API 域名配置
-var apiUrl = 'devprod.click-v.com'; // QA 环境
+var apiUrl = ''; // QA 环境
 var apiBaseurl = protocol + '://' + apiUrl + '/ds_platform/';
 
 // 微下载地址
-var weiDownloadUrl = 'http://www.click-v.com/videoshare/download';
-var wxCheck = 'http://wechat.click-v.com/';
+var weiDownloadUrl = '';
+var wxCheck = '';
 
 // 小微封接口域名配置
-var xwfBaseurl = 'http://devactivity.click-v.com';
+var xwfBaseurl = '';
 
 // 浏览器WeID配置
-var WeIDEnv = 'prmweid.xwf-id.com'; // [env]weid.xwf-id.com    dev 测试环境, prm 准生产环境, prd 生产环境
+var WeIDEnv = ''; // [env]weid.xwf-id.com    dev 测试环境, prm 准生产环境, prd 生产环境
 var WeIDBaseUrl = httpsProtocol + '://' + WeIDEnv;
 
 //页面监控时间统计
-var DevLog = 'uatlog.click-v.com'; // 测试环境uatlog.click-v.com, 正式环境log2.click-v.com
+var DevLog = ''; // 测试环境uatlog.click-v.com, 正式环境log2.click-v.com
 var DevLogUrl = protocol + '://' + DevLog + '/';
 
 // logourl
-var logoUrl = 'http://pic.click-v.com/FKLY6u05MMX95LVa-lC2eaZi-TA=/FsN93urJtxFdqbnaJ8_8NTNMiQAF';
+var logoUrl = '';
 
 window.CONST = {
     WXDU: weiDownloadUrl,
